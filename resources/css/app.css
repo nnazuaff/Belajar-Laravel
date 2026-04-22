@@ -1,6 +1,10 @@
 @import 'tailwindcss';
 @import "flowbite/src/themes/default";
 
+[x-cloak] {
+    display: none !important;
+}
+
 
 @plugin "flowbite/plugin";
 

@@ -37,7 +37,7 @@
                                         class="size-8 rounded-full outline -outline-offset-1 outline-white/10" />
                                 </button>
 
-                                <div x-show="isProfileOpen" @click.away="isProfileOpen = false"
+                                <div x-cloak x-show="isProfileOpen" @click.away="isProfileOpen = false"
                                     x-transition:enter="transition ease-out duration-100"
                                     x-transition:enter-start="transform opacity-0 scale-95"
                                     x-transition:enter-end="transform opacity-100 scale-100"
@@ -79,7 +79,8 @@
                 </div>
             </div>
 
-            <div x-show="isMobileMenuOpen" @click.away="isMobileMenuOpen = false" id="mobile-menu" class="block md">
+            <div x-cloak x-show="isMobileMenuOpen" @click.away="isMobileMenuOpen = false" id="mobile-menu"
+                class="md:hidden">
                 <div class="space-y-1 px-2 pt-2 pb-3 sm:px-3">
                     <!-- Current: "bg-gray-900 dark:bg-gray-950/50 text-white", Default: "text-gray-300 hover:bg-white/5 hover:text-white" -->
                     <x-nav-link class="display: block" href="/" :current="request()->is('/')">

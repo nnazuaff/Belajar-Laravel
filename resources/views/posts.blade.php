@@ -36,12 +36,13 @@
                             <img class="w-7 h-7 rounded-full"
                                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                                 alt="Jese Leos avatar" />
-                            <a href="/authors/{{ $post->author->username }}" class="font-medium dark:text-white">
+                            <a href="/authors/{{ $post->author->username }}"
+                                class="font-medium text-xs dark:text-white">
                                 {{ $post->author->username }}
                             </a>
                         </div>
                         <a href="/posts/{{ $post['slug'] }}"
-                            class="inline-flex items-center font-medium text-primary-900 dark:text-primary-500 hover:underline">
+                            class="inline-flex items-center font-medium text-xs text-primary-900 dark:text-primary-500 hover:underline">
                             Read more
                             <svg class="ml-2 w-4 h-4" fill="currentColor" viewBox="0 0 20 20"
                                 xmlns="http://www.w3.org/2000/svg">
