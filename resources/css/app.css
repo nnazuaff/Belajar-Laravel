@@ -7,6 +7,8 @@
 
 
 @plugin "flowbite/plugin";
+@plugin "flowbite-typography";
+
 
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -34,5 +36,3 @@
     --font-mono: 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace';
 }
 /* input.css */
-@custom-variant dark (&:where(.dark, .dark *));
-
