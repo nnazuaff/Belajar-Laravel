@@ -1,7 +1,13 @@
 <x-layout :title="$title">
-    <div class="py-4 px-4 mx-auto max-w-screen-xl lg:px-6">
+    <div class="py-4 px-4 mx-auto max-w-7xl lg:px-6">
 
         <form class="max-w-md mx-auto mb-8" method="GET" action="/posts">
+            @if (request('category'))
+                <input type="hidden" name="category" value="{{ request('category') }}">
+            @endif
+            @if (request('author'))
+                <input type="hidden" name="author" value="{{ request('author') }}">
+            @endif
             <label for="search" class="block mb-2.5 text-sm font-medium text-heading sr-only ">Search</label>
             <div class="relative">
                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
@@ -13,8 +19,7 @@
                 </div>
                 <input type="search" id="search"
                     class="block w-full p-3 ps-9 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body"
-                    placeholder="Search post title..." autofocus name="search" autocomplete="off"
-                    value="{{ request('search') }}" />
+                    placeholder="Search post title..." autofocus name="search" autocomplete="off" />
                 <button type="submit"
                     class="absolute end-1.5 bottom-1.5 text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded text-xs px-3 py-1.5 focus:outline-none">Search</button>
             </div>
@@ -25,7 +30,7 @@
                 <article
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
-                        <a href="/categories/{{ $post->category->slug }}"
+                        <a href="posts?category={{ $post->category->slug }}"
                             class="bg-primary-100 text-blue-500 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">
                             {{ $post->category->name }}
                         </a>
@@ -39,7 +44,7 @@
                             <img class="w-7 h-7 rounded-full"
                                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/jese-leos.png"
                                 alt="Jese Leos avatar" />
-                            <a href="/authors/{{ $post->author->username }}"
+                            <a href="/posts?author={{ $post->author->username }}"
                                 class="font-medium text-xs dark:text-white">
                                 {{ $post->author->name }}
                             </a>
