@@ -24,9 +24,9 @@
                     class="absolute end-1.5 bottom-1.5 text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded text-xs px-3 py-1.5 focus:outline-none">Search</button>
             </div>
         </form>
-        {{ $posts->links() }}
-        <div class="mt-4 grid gap-8 lg:grid-cols-3 md:grid-cols-2">
-            @foreach ($posts as $post)
+
+        <div class="mb-4 grid gap-8 lg:grid-cols-3 md:grid-cols-2">
+            @forelse ($posts as $post)
                 <article
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
@@ -61,9 +61,16 @@
                         </a>
                     </div>
                 </article>
-            @endforeach
+            @empty
+                <div class="col-span-full text-center w-full">
+                    <p>
+                        Article not found
+                    </p>
+                </div>
+            @endforelse
 
         </div>
+        {{ $posts->links() }}
     </div>
 
 </x-layout>
