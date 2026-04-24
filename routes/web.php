@@ -9,16 +9,14 @@ Route::get('/', function () {
 
 Route::get('/posts', function () {
     // Filters
-    $posts = Post::latest()->filter(request(['search', 'category', 'author']))->get();
+    $posts = Post::latest()->filter(request(['search', 'category', 'author']))->simplePaginate(5)->withQueryString();
     if ($posts) {
         return view('posts', ['title' => 'Blog', 'posts' => $posts]);
     }
 });
 
 Route::get('/posts/{post:slug}', function (Post $post) {
-
     return view('post', ['title' => 'Single Post', 'post' => $post]);
-
 });
 
 Route::get('/about', function () {

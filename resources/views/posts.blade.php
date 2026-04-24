@@ -24,8 +24,8 @@
                     class="absolute end-1.5 bottom-1.5 text-white bg-brand hover:bg-brand-strong box-border border border-transparent focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded text-xs px-3 py-1.5 focus:outline-none">Search</button>
             </div>
         </form>
-
-        <div class="grid gap-8 lg:grid-cols-3 md:grid-cols-2">
+        {{ $posts->links() }}
+        <div class="mt-4 grid gap-8 lg:grid-cols-3 md:grid-cols-2">
             @foreach ($posts as $post)
                 <article
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
